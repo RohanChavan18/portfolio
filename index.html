@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MY PORTFOLIO</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #07060b;
+        --card: #0f1116;
+        --muted: #a7a0aa;
+        --accent: #ff7a59;
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 14px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(180deg, #050409 0%, #0b0b10 100%);
+        color: #e9e6ee;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      /* Navbar */
+      header {
+        position: sticky;
+        top: 16px;
+        z-index: 20;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0)
+        );
+        backdrop-filter: blur(6px);
+        padding: 10px 18px;
+        border-radius: 40px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #fff;
+      }
+      nav ul {
+        display: flex;
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav li {
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .cta {
+        background: var(--accent);
+        padding: 10px 16px;
+        border-radius: 30px;
+        color: #12050b;
+        font-weight: 700;
+      }
+
+      /* Hero/About */
+      .hero {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        padding: 80px 0;
+      }
+      .hero-left {
+        flex: 0 0 360px;
+        position: relative;
+      }
+      .profile-wrap {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        padding: 12px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 122, 89, 0.16),
+          rgba(255, 122, 89, 0.06)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .profile {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+      }
+      .profile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-right {
+        flex: 1;
+      }
+      .eyebadge {
+        display: inline-block;
+        background: var(--glass);
+        padding: 6px 12px;
+        border-radius: 20px;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: 40px;
+        margin: 0 0 12px;
+      }
+      p.lead {
+        color: var(--muted);
+        max-width: 700px;
+        line-height: 1.7;
+      }
+
+      .info-card {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+      .meta {
+        background: var(--card);
+        padding: 14px;
+        border-radius: 12px;
+        min-width: 220px;
+      }
+      .meta strong {
+        display: block;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+      .btns {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .btn {
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: transparent;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #14070a;
+        border: none;
+      }
+
+      /* Section */
+      .section {
+        padding: 60px 0;
+      }
+      .section h2 {
+        text-align: center;
+        margin: 0 0 10px;
+      }
+      .section p {
+        color: var(--muted);
+        text-align: center;
+        margin: 0 0 30px;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .skill {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.015),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 18px;
+        border-radius: 12px;
+        text-align: center;
+      }
+      .skill .title {
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .bar {
+        height: 10px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .bar > span {
+        display: block;
+        height: 100%;
+        width: 0%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), #ffb089);
+        transition: width 1.3s ease;
+      }
+      .percent {
+        font-size: 12px;
+        margin-top: 8px;
+        color: var(--muted);
+      }
+
+      /* Services */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .service {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 18px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .service:hover {
+        transform: translateY(-6px);
+      }
+      .service img {
+        width: 100%;
+        height: 140px;
+        border-radius: 10px;
+        object-fit: cover;
+        margin-bottom: 12px;
+      }
+      .service h3 {
+        margin: 8px 0;
+        color: var(--accent);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .test {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 18px;
+        border-radius: 12px;
+      }
+      .stars {
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .quote {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 30px;
+      }
+      .contact-card {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+      }
+      .contact-card h3 {
+        margin: 0 0 14px;
+        color: var(--accent);
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+      }
+      .contact-form button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: var(--accent);
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Footer */
+      footer {
+        padding: 40px 0;
+        margin-top: 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+      }
+      .small {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .services {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .testimonials {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+      @media (max-width: 640px) {
+        nav ul {
+          display: none;
+        }
+        .container {
+          padding: 22px;
+        }
+        .skills-grid,
+        .services,
+        .testimonials {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="nav">
+          <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+              <div style="font-weight: 700">Rohan Chavan</div>
+              <div style="font-size: 12px; color: var(--muted)">
+                Personal Portfolio
+              </div>
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+          <a class="cta" href="#contact">Let's Talk</a>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="profile-wrap">
+            <div class="profile">
+              <img src="ROHAN.jpg" alt="Profile" />
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <span class="eyebadge">About Me</span>
+          <h1>Hello! Everyone 👋 Welcome to My Portfolio</h1>
+          <p class="lead">
+            I am a passionate and motivated individual with a strong interest in
+            technology and problem-solving. Skilled in building web
+            applications, managing databases, and creating user-friendly
+            solutions, I enjoy learning new tools and applying them to
+            real-world projects. As a fresher, I am eager to contribute my
+            knowledge, grow my expertise, and collaborate on innovative ideas
+            that make a positive impact.
+          </p>
+
+          <div class="info-card">
+            <div class="meta">
+              <strong>Name</strong>Rohan Chavan<br /><span class="muted"
+                >Full Stack Developer</span
+              >
+            </div>
+            <div class="meta"><strong>Email</strong>crohan394@gmail.com</div>
+            <div class="meta"><strong>Phone</strong>+91 9356781458</div>
+          </div>
+
+          <div class="btns">
+            <a class="btn primary" href="#contact">Contact me</a>
+            <a class="btn" href="Rohan's Resume-hackerresume.pdf"
+              >Download Resume</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section">
+        <h2>My Work <span style="color: var(--accent)">Skills</span></h2>
+        <p>Tools and technologies I work with frequently.</p>
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="title">Full Stack Developer</div>
+
+            <div class="percent">99%</div>
+            <a class="cp">Completed</a>
+          </div>
+          <div class="skill">
+            <div class="title">Web Development</div>
+
+            <div class="percent">95%</div>
+            <a class="cp">Completed</a>
+          </div>
+          <div class="skill">
+            <div class="title">UI / UX Design</div>
+
+            <div class="percent">97%</div>
+            <a class="cp">Completed</a>
+          </div>
+          <div class="skill">
+            <div class="title">Data Analysis</div>
+
+            <div class="percent">93%</div>
+            <a class="cp">Completed</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section">
+        <h2>My <span style="color: var(--accent)">Services</span></h2>
+        <p>I offer end-to-end services from design to deployment.</p>
+        <div class="services">
+          <div class="service">
+            <img src="https://picsum.photos/600/400?random=1" alt="ui ux" />
+            <h3>UI / UX Design</h3>
+            <p class="small muted">
+              User research, wireframing, and interactive prototypes.
+            </p>
+          </div>
+          <div class="service">
+            <a href="https://github.com/RohanChavan18/HostelManagement">
+              <img
+                src="https://picsum.photos/600/400?random=2"
+                alt="web design"
+              />
+              <h3>Web Design</h3>
+              <p class="small muted">
+                Modern, responsive interfaces with branding in mind.
+              </p>
+            </a>
+          </div>
+          <div class="service">
+            <img src="https://picsum.photos/600/400?random=3" alt="web dev" />
+            <h3>Web Development</h3>
+            <p class="small muted">
+              Fast, accessible, and SEO-friendly websites.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <h2>Get in <span style="color: var(--accent)">Touch</span></h2>
+        <p>Have a project in mind? Let’s talk.</p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Contact Details</h3>
+            <p><strong>Email:</strong> crohan394@gmail.com</p>
+            <p><strong>Phone:</strong> +91 9356781458</p>
+            <p><strong>Location:</strong> India</p>
+          </div>
+          <div class="contact-card">
+            <h3>Send Message</h3>
+            <form class="contact-form">
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea rows="4" placeholder="Your Message"></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-grid">
+          <div>
+            <div class="logo">RC</div>
+
+            <h4>Hope ! You Like My Portfolio</h4>
+            <p class="small">Home • Services • Portfolio • About • Contact</p>
+          </div>
+          <div></div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
